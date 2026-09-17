@@ -15,7 +15,15 @@ public class BasicOperators {
      * @return double array where [0] is the sum and [1] is the average
      */
     public static double[] sumAndAverage(int a, int b, int c) {
-        return null;
+        double[] arr = new double[2];
+
+        int sum = a + b + c;
+        double average = sum / 3.0;
+
+        arr[0] = sum;
+        arr[1] = average;
+
+        return arr;
     }
 
     /**
@@ -27,7 +35,15 @@ public class BasicOperators {
      * @return the largest of the three values
      */
     public static int maxOfThree(int a, int b, int c) {
-        return 0;
+        int max;
+        if (a > b && a > c){
+            max = a;
+        } else if (b > a && b > c) {
+            max = b;
+        } else {
+            max = c;
+        }
+        return max;
     }
 
     /**
@@ -48,7 +64,23 @@ public class BasicOperators {
      * @throws IllegalArgumentException if {@code score} is less than 0 or greater than 100
      */
     public static char gradeFromScore(int score) {
-        return '0';
+        char result;
+        if (score < 100 && score >= 90) {
+            result = 'A';
+        } else if (score < 90 && score >= 80) {
+            result = 'B';
+        } else if (score < 80 && score >= 70) {
+            result = 'C';
+        } else if (score < 70 && score >= 60) {
+            result = 'D';
+        } else if (score < 60 && score >= 50) {
+            result = 'E';
+        } else if (score < 50 && score >= 0) {
+            result = 'F';
+        } else {
+            throw new IllegalArgumentException();
+        }
+        return result;
     }
 
     /**
@@ -64,7 +96,35 @@ public class BasicOperators {
      * @throws IllegalArgumentException if {@code day} is less than 1 or greater than 7
      */
     public static String dayOfWeek(int day) {
-        return null;
+        String result;
+
+        switch (day) {
+            case 1:
+                result = "Monday";
+                break;
+            case 2:
+                result = "Tuesday";
+                break;
+            case 3:
+                result = "Wednesday";
+                break;
+            case 4:
+                result = "Thursday";
+                break;
+            case 5:
+                result = "Friday";
+                break;
+            case 6:
+                result = "Saturday";
+                break;
+            case 7:
+                result = "Sunday";
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
+
+        return result;
     }
 
     /**
@@ -75,7 +135,17 @@ public class BasicOperators {
      * @throws IllegalArgumentException if {@code n} is negative
      */
     public static int[] countdown(int n) {
-        return null;
+        if (n < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = n - i;
+        }
+
+        return arr;
     }
 
     /**
@@ -86,7 +156,14 @@ public class BasicOperators {
      * @throws IllegalArgumentException if {@code n} is negative
      */
     public static long factorial(int n) {
-        return 0;
+        long res = 1;
+        if (n < 0){
+            throw new IllegalArgumentException();
+        }
+        for (int i = 1; i <= n; i++) {
+            res *= i;
+        }
+        return res;
     }
 
     /**
